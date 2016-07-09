@@ -1,0 +1,27 @@
+.pokemonCard {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #f7f7f7;
+  border-radius: 5px;
+  padding: 5px 0;
+  display: inline-block;
+  margin: 5px;
+}
+
+.pokemonCardNumber {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background-color: royalblue;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Arvo', sans-serif;
+  text-align: center;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.pokemonCardName {
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+}

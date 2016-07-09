@@ -1,0 +1,13 @@
+.PokemonLabel {
+  list-style: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 2px 5px;
+  display: inline-block;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.PokemonLabelList {
+  margin: 10px;
+}
