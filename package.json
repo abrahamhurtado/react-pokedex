@@ -48,9 +48,11 @@
     "webpack-hot-middleware": "2.12.1"
   },
   "dependencies": {
+    "async-props": "0.3.2",
     "babel-register": "6.9.0",
     "compression": "1.6.2",
     "express": "4.14.0",
+    "isomorphic-fetch": "2.2.1",
     "react": "15.2.0",
     "react-dom": "15.2.0",
     "react-helmet": "3.1.0",

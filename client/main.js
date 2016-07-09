@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import AsyncProps from 'async-props';
 import { Router, browserHistory, match } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import routes from '../shared/routes';
@@ -11,6 +12,7 @@ match({ routes, location }, (err, redirect, props) => {
   render(
     <AppContainer>
       <Router
+        render={ (renderProps) => <AsyncProps { ...renderProps } /> }
         history={ browserHistory }
         routes={ routes }
       />
@@ -24,6 +26,7 @@ if (module.hot) {
       render(
         <AppContainer>
           <Router
+            render={ (renderProps) => <AsyncProps { ...renderProps } /> }
             history={ browserHistory }
             routes={ routes }
           />
