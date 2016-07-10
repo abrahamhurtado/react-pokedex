@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack --config webpack.config.dev.js",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run clean-and-copy",
     "build": "webpack --config webpack.config.prod.js",
     "clean": "rimraf build",
-    "predev": "npm run clean",
+    "clean-and-copy": "npm run clean && npm run copy-files",
+    "predev": "npm run clean-and-copy",
+    "copy-files": "cp -r ./assets/ ./build/",
     "dev": "node index.js",
     "lint": "eslint client shared server server.js",
     "lint-fix": "eslint --fix client shared server server.js",
@@ -56,6 +58,7 @@
     "react": "15.2.0",
     "react-dom": "15.2.0",
     "react-helmet": "3.1.0",
-    "react-router": "2.5.2"
+    "react-router": "2.5.2",
+    "serve-favicon": "2.3.0"
   }
 }

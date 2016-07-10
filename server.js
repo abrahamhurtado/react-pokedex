@@ -6,6 +6,7 @@ import chalk from 'chalk';
 
 // middlewares
 import compression from 'compression';
+import favicon from 'serve-favicon';
 
 // custom middlewares
 import reactRouter from './server/middleware/reactRouter';
@@ -15,6 +16,7 @@ const app = express();
 const env = process.env.NODE_ENV || 'development';
 
 app.use(compression());
+app.use(favicon(path.resolve(__dirname, './assets/favicon.ico')));
 
 app.use('/static', express.static(`${__dirname}/build`));
 
