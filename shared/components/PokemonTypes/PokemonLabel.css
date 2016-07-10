@@ -6,6 +6,7 @@
   display: inline-block;
   margin: 0 5px;
   border-radius: 5px;
+  width: 70px;
 }
 
 .PokemonLabelList {

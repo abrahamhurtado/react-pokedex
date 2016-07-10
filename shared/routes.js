@@ -8,9 +8,9 @@ import './global.css';
 
 export default {
   path: '/',
-  component: PokemonList,
+  component: App,
   indexRoute: {
-    component: Index
+    component: PokemonList
   },
   childRoutes: [
     { path: '/children', component: Children }

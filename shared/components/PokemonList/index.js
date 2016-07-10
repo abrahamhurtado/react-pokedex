@@ -2,35 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { InfiniteLoader, VirtualScroll } from 'react-virtualized';
 import 'isomorphic-fetch';
-import 'react-virtualized/styles.css';
-import PokemonCard from '../PokemonMin'
-
-let list = [
-  'Abraham Hurtado',
-  'Diego Hurtado',
-  'Rolando Valenzuela',
-  'Ramón Ramirez'
-];
-
-// function isRowLoaded ({ index }) {
-//   return !!list[index];
-// }
-//
-// function loadMoreRows ({ startIndex, stopIndex }) {
-//   return fetch(`http://pokeapi.co/api/v2/pokemon/?limit=${stopIndex - startIndex}&offset=${startIndex}`)
-//     .then(response => response.json())
-//     .then(pokemon => {
-//       return Promise.all(
-//         pokemon.results.map(x => fetch(x.url).then(r => r.json()))
-//       )
-//     })
-//     .then(pokemonList => {
-//       console.log(pokemonList);
-//       pokemonList.forEach(pokemon => {
-//         list.splice(pokemon.id, 0, pokemon)
-//       });
-//     });
-// }
+import PokemonCard from '../PokemonCard';
 
 export default class PokemonList extends React.Component {
   static loadProps (params, cb) {
@@ -51,16 +23,12 @@ export default class PokemonList extends React.Component {
   render () {
     return (
       <div>
-        {this.props.children}
-        <div>
         {this.props.pokemon.map(pokemon => (
           <PokemonCard
             key={pokemon.id}
             pokemon={ pokemon }
           />
         ))}
-        </div>
-        <Helmet title="Pokédex" />
       </div>
     )
   }
