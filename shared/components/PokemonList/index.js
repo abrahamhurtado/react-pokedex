@@ -22,7 +22,7 @@ export default class PokemonList extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div style={{textAlign: 'center'}}>
         {this.props.pokemon.map(pokemon => (
           <PokemonCard
             key={pokemon.id}
