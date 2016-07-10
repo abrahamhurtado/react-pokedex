@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var { resolve } = require('path');
+var resolve = require('path').resolve;
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 

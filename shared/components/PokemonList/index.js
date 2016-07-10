@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { InfiniteLoader, VirtualScroll } from 'react-virtualized';
+// import { InfiniteLoader, VirtualScroll } from 'react-virtualized';
 import 'isomorphic-fetch';
 import PokemonCard from '../PokemonCard';
 
@@ -14,7 +14,6 @@ export default class PokemonList extends React.Component {
       .then(pokemonList => cb(null, {
         pokemon: pokemonList.map(pokemon => ({
           name: pokemon.name,
-          sprite: pokemon.sprites.front_default,
           id: pokemon.id,
           types: pokemon.types
         }))

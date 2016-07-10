@@ -10,11 +10,10 @@
 }
 
 .pokemonCardImage {
-  width: 100px;
   height: 100px;
   margin: 0 auto 2px;
-  border: 1px solid #f7f7f7;
-  border-radius: 100%
+  background-position: center center!important;
+  background-repeat: no-repeat!important;
 }
 
 .pokemonCardNumber {
