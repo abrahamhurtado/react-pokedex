@@ -18,10 +18,13 @@ var loaders = [
     }
   }, {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
+    loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss')
   }, {
     test: /\.html$/,
     loader: 'html'
+  }, {
+    test: /\.json$/,
+    loader: 'json'
   }
 ]
 
@@ -72,7 +75,7 @@ module.exports = () => {
       publicPath: '/static/'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.css']
+      extensions: ['.js', '.jsx', '.css', '.json']
     },
     module: {
       loaders: loaders

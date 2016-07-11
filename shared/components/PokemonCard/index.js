@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import PokemonTypes from '../PokemonTypes'
+import PokemonTypes from '../PokemonTypes';
 import capitalizeString from '../../utils/capitalizeString';
 import displayName from '../../utils/changeName';
 import leftPad from 'left-pad';

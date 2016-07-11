@@ -21,17 +21,20 @@ var loaders = [
   }, {
     test: /\.css$/,
     loaders: [
-      'style-loader',
+      'style',
       {
-        loader: 'css-loader',
+        loader: 'css',
         query: {
           modules: true,
           importLoaders: '1',
           localIdentName: '[name]__[local]___[hash:base64:5]'
         }
       },
-      'postcss-loader'
+      'postcss'
     ]
+  }, {
+    test: /\.json$/,
+    loader: 'json'
   }
 ]
 
@@ -59,7 +62,7 @@ module.exports = () => {
       publicPath: '/static/'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.css']
+      extensions: ['.js', '.jsx', '.css', '.json']
     },
     module: {
       loaders: loaders

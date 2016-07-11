@@ -16,16 +16,16 @@ export default class PokemonType extends React.Component {
       <ul
         className={ styles.PokemonLabelList }
       >
-        {this.props.types.reverse().map((typeObj, i) => (
+        {this.props.types.map(({id, name}, i) => (
           <Link
-            to={ `/types/${typeObj.type.url.split("/").filter(x => Boolean(x)).pop()}` }
+            to={ `/types/${id}` }
             key={ i }
           >
             <li
-              style={ getTypeLabelColor(typeObj.type.name) }
+              style={ getTypeLabelColor(name) }
               className={ styles.PokemonLabel }
             >
-              {capitalizeString(typeObj.type.name)}
+              {capitalizeString(name)}
             </li>
           </Link>
         ))}

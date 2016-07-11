@@ -1,0 +1,234 @@
+[
+  [
+    {
+      "name": "grass",
+      "id": "12"
+    },
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "grass",
+      "id": "12"
+    },
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "grass",
+      "id": "12"
+    },
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "fire",
+      "id": "10"
+    }
+  ],
+  [
+    {
+      "name": "fire",
+      "id": "10"
+    }
+  ],
+  [
+    {
+      "name": "fire",
+      "id": "10"
+    },
+    {
+      "name": "flying",
+      "id": "3"
+    }
+  ],
+  [
+    {
+      "name": "water",
+      "id": "11"
+    }
+  ],
+  [
+    {
+      "name": "water",
+      "id": "11"
+    }
+  ],
+  [
+    {
+      "name": "water",
+      "id": "11"
+    }
+  ],
+  [
+    {
+      "name": "bug",
+      "id": "7"
+    }
+  ],
+  [
+    {
+      "name": "bug",
+      "id": "7"
+    }
+  ],
+  [
+    {
+      "name": "bug",
+      "id": "7"
+    },
+    {
+      "name": "flying",
+      "id": "3"
+    }
+  ],
+  [
+    {
+      "name": "bug",
+      "id": "7"
+    },
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "bug",
+      "id": "7"
+    },
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "bug",
+      "id": "7"
+    },
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "normal",
+      "id": "1"
+    },
+    {
+      "name": "flying",
+      "id": "3"
+    }
+  ],
+  [
+    {
+      "name": "normal",
+      "id": "1"
+    },
+    {
+      "name": "flying",
+      "id": "3"
+    }
+  ],
+  [
+    {
+      "name": "normal",
+      "id": "1"
+    },
+    {
+      "name": "flying",
+      "id": "3"
+    }
+  ],
+  [
+    {
+      "name": "normal",
+      "id": "1"
+    }
+  ],
+  [
+    {
+      "name": "normal",
+      "id": "1"
+    }
+  ],
+  [
+    {
+      "name": "normal",
+      "id": "1"
+    },
+    {
+      "name": "flying",
+      "id": "3"
+    }
+  ],
+  [
+    {
+      "name": "normal",
+      "id": "1"
+    },
+    {
+      "name": "flying",
+      "id": "3"
+    }
+  ],
+  [
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "electric",
+      "id": "13"
+    }
+  ],
+  [
+    {
+      "name": "electric",
+      "id": "13"
+    }
+  ],
+  [
+    {
+      "name": "ground",
+      "id": "5"
+    }
+  ],
+  [
+    {
+      "name": "ground",
+      "id": "5"
+    }
+  ],
+  [
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ],
+  [
+    {
+      "name": "poison",
+      "id": "4"
+    }
+  ]
+]

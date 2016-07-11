@@ -1,28 +1,34 @@
 import React from 'react';
-import Helmet from 'react-helmet';
-// import { InfiniteLoader, VirtualScroll } from 'react-virtualized';
 import 'isomorphic-fetch';
 import PokemonCard from '../PokemonCard';
 
+import range from '../../utils/range';
+var pokemonNames = require('../../data/pokemonNames.json');
+var pokemonTypes = require('../../data/pokemonTypes.json');
+
+function createInitialState (pokemonNameList, pokemonIdList, pokemonTypeList) {
+  return pokemonIdList.map((id) => ({
+    name: pokemonNameList[id - 1],
+    id,
+    types: pokemonTypeList[id - 1]
+  }));
+}
+
+
 export default class PokemonList extends React.Component {
-  static loadProps (params, cb) {
-    fetch ('http://pokeapi.co/api/v2/pokemon/?limit=30')
-      .then(response => response.json())
-      .then(pokelist => Promise.all(
-        pokelist.results.map(pokemon => fetch(pokemon.url).then(r => r.json()))
-      ))
-      .then(pokemonList => cb(null, {
-        pokemon: pokemonList.map(pokemon => ({
-          name: pokemon.name,
-          id: pokemon.id,
-          types: pokemon.types
-        }))
-      }))
+  constructor () {
+    super();
+    this.state = {
+      pokemon: createInitialState(pokemonNames, range(1, 31), pokemonTypes)
+    };
+  }
+  componentDidMount () {
+   console.log('Se renderizó el componente =)');
   }
   render () {
     return (
       <div style={{textAlign: 'center'}}>
-        {this.props.pokemon.map(pokemon => (
+        {this.state.pokemon.map(pokemon => (
           <PokemonCard
             key={pokemon.id}
             pokemon={ pokemon }
