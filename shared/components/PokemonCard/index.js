@@ -14,11 +14,10 @@ function createPokemonBackground (pokemonId) {
 
 export default class PokemonCard extends React.Component {
   render () {
-    debugger;
     return (
         <div className={ styles.pokemonCard }>
           <Link to={ `/pokemon/${this.props.pokemon.id}` }>
-            <div style={ createPokemonBackground(this.props.pokemon.id) } className={ styles.pokemonCardImage }></div>
+            <div className={ `${styles.pokemonCardImage} pokemon-${leftPad(this.props.pokemon.id, 3, 0)}` }></div>
             <div className={ styles.pokemonCardNumber }>
               <span style={{lineHeight: '40px'}}>{this.props.pokemon.id}</span>
               </div>

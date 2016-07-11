@@ -4,4 +4,4 @@ docs
 webpack.*
 test
 index.js
-server.js
+scripts
