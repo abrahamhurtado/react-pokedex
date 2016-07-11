@@ -3,6 +3,7 @@ var resolve = require('path').resolve;
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 var loaders = [
   {
@@ -27,6 +28,9 @@ var loaders = [
 var plugins = [
   new HtmlWebpackPlugin({
     template: './index.html'
+  }),
+  new ScriptExtHtmlWebpackPlugin({
+    async: ['loadCSS.js']
   }),
   new webpack.optimize.DedupePlugin(),
   new webpack.LoaderOptionsPlugin({
@@ -53,10 +57,13 @@ var plugins = [
 module.exports = () => {
   return {
     context: __dirname,
-    entry: './client/main',
+    entry: {
+      'app': './client/main',
+      'loadCSS': './client/loadCss'
+    },
     devtool: 'hidden-source-map',
     output: {
-      filename: 'bundle.js',
+      filename: '[name].js',
       path: resolve(__dirname, 'build'),
       publicPath: '/static/'
     },

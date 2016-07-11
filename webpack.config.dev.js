@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var resolve = require('path').resolve;
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 var loaders = [
   {
@@ -39,19 +40,21 @@ var plugins = [
   new HtmlWebpackPlugin({
     template: './index.html'
   }),
+  new ScriptExtHtmlWebpackPlugin({
+    async: ['loadCSS.js']
+  }),
 ]
 
 module.exports = () => {
   return {
     context: __dirname,
-    entry: [
-      'react-hot-loader/patch',
-      'webpack-hot-middleware/client',
-      './client/main'
-    ],
+    entry: {
+      'app': ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/main'],
+      'loadCSS': './client/loadCss'
+    },
     devtool: 'cheap-module-eval-source-map',
     output: {
-      filename: 'bundle.js',
+      filename: '[name].js',
       path: resolve(__dirname, 'build'),
       publicPath: '/static/'
     },
