@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import AsyncProps, { loadPropsOnServer } from 'async-props';
 import { readFileSync } from 'fs';
 import { renderToString } from 'react-dom/server';
-import { match, RouterContext } from 'react-router';
+import { match } from 'react-router';
 import routes from '../../shared/routes';
 
 export default (isDev, filename, webpackFileSystem) => (req, res) => {
@@ -14,7 +14,12 @@ export default (isDev, filename, webpackFileSystem) => (req, res) => {
       res.redirect(redirect.pathname + redirect.search);
     } else if (props) {
       loadPropsOnServer(props, null, (asyncError, asyncProps, scriptTag) => {
-        const app = renderToString(<AsyncProps { ...props } { ...asyncProps } />);
+        const app = renderToString(
+          <AsyncProps
+            { ...props }
+            { ...asyncProps }
+          />
+        );
         const head = Helmet.rewind();
 
         try {

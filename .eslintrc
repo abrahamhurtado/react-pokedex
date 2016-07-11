@@ -41,7 +41,7 @@
     "no-unexpected-multiline": [2],
     "consistent-return": [2],
     "curly": [2, "multi-line"],
-    "default-case": [2],
+    "default-case": [0],
     "dot-notation": [2, { "allowKeywords": true }],
     "eqeqeq": [2],
     "guard-for-in": [0],

@@ -33,6 +33,9 @@ var plugins = [
     async: ['loadCSS.js']
   }),
   new webpack.optimize.DedupePlugin(),
+  new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+  }),
   new webpack.LoaderOptionsPlugin({
     minimize: true,
     debug: false
@@ -59,7 +62,8 @@ module.exports = () => {
     context: __dirname,
     entry: {
       'app': './client/main',
-      'loadCSS': './client/loadCss'
+      'loadCSS': './client/loadCss',
+      vendor: ['react', 'react-dom', 'react-router', 'async-props']
     },
     devtool: 'hidden-source-map',
     output: {

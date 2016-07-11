@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import capitalizeString from '../../utils/capitalizeString.js';
 import styles from './PokemonLabel.css';
@@ -10,7 +10,7 @@ function getTypeLabelColor (type) {
   }
 }
 
-export default class PokemonType extends Component {
+export default class PokemonType extends React.Component {
   render() {
     return (
       <ul
