@@ -19,7 +19,7 @@ export default class PokemonList extends React.Component {
   constructor () {
     super();
     this.state = {
-      pokemon: createInitialState(pokemonNames, range(1, 31), pokemonTypes)
+      pokemon: createInitialState(pokemonNames, range(1, 722), pokemonTypes)
     };
   }
   componentDidMount () {
