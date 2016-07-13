@@ -35,6 +35,12 @@ var loaders = [
   }, {
     test: /\.json$/,
     loader: 'json'
+  }, {
+    test: /\.(png|jpg)$/,
+    loaders: [
+      'url?name=[name].[ext]',
+      'image-webpack'
+    ]
   }
 ]
 
@@ -68,6 +74,12 @@ module.exports = () => {
       loaders: loaders
     },
     plugins: plugins,
-    postcss: () => [ autoprefixer({browsers: 'last 2 versions'}) ]
+    postcss: () => [ autoprefixer({browsers: 'last 2 versions'}) ],
+    imageWebpackLoader: {
+      pngquant: {
+        quality: "20-30",
+        speed: 4
+      }
+    }
   }
 }

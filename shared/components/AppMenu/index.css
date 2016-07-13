@@ -6,7 +6,7 @@
 .AppMenuLogo {
   width: 43px;
   height: 43px;
-  background-image: url('/static/img/android-chrome-72x72.png');
+  background-image: url(../../../assets/img/android-chrome-72x72.png);
   background-size: cover;
   padding-left: 43px;
 }
