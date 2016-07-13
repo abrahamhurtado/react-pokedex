@@ -15,7 +15,8 @@
     "lint": "eslint client shared server server.js",
     "lint-fix": "eslint --fix client shared server server.js",
     "prestart": "npm run build",
-    "start": "cross-env NODE_ENV=production node index.js"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "start:tunnel": "cross-env NODE_ENV=production ENABLE_TUNEL=true node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +38,7 @@
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.22.0",
     "json-loader": "0.5.4",
+    "ngrok": "2.2.1",
     "postcss": "5.0.21",
     "postcss-loader": "0.9.1",
     "postcss-modules-extract-imports": "1.0.1",

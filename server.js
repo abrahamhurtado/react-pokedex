@@ -44,6 +44,17 @@ if (env === 'development') {
   app.use(reactRouter(false, path.resolve('./build/index.html')));
 }
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(chalk.bold.green(`El servidor escucha en el puerto ${process.env.PORT || 3000}`));
+let port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(chalk.bold.green(`El servidor escucha en el puerto ${port}`));
+  if (process.env.ENABLE_TUNEL) {
+    require('ngrok').connect(port, (err, url) => {
+      if (err) {
+        console.log(chalk.red(`${err}`));
+        throw err;
+      }
+      console.log(chalk.green(`La aplicación está servida en ${url}`));
+    });
+  }
 });
