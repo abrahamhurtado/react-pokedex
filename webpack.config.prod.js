@@ -72,7 +72,7 @@ module.exports = () => {
     entry: {
       'app': './client/main',
       'loadCSS': './client/loadCss',
-      vendor: ['react', 'react-dom', 'react-router', 'async-props']
+      vendor: ['react', 'react-dom', 'react-router', 'async-props', 'react-helmet']
     },
     devtool: 'hidden-source-map',
     output: {
