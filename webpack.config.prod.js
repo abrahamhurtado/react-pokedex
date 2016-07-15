@@ -76,7 +76,7 @@ module.exports = () => {
     },
     devtool: 'hidden-source-map',
     output: {
-      filename: '[chunkhash].[name].js',
+      filename: '[name].js',
       path: resolve(__dirname, 'build'),
       publicPath: '/static/'
     },

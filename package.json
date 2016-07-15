@@ -60,6 +60,7 @@
     "async-props": "0.3.2",
     "babel-register": "6.9.0",
     "compression": "1.6.2",
+    "ejs": "2.4.2",
     "express": "4.14.0",
     "fg-loadcss": "1.2.0",
     "fontfaceobserver": "2.0.1",
