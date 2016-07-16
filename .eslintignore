@@ -3,5 +3,5 @@ build
 docs
 webpack.*
 test
-index.js
+server/index.js
 scripts

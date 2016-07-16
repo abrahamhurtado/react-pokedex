@@ -9,13 +9,11 @@ var loaders = [
     test: /\.(js|jsx)$/,
     exclude: /node_modules/,
     loader: 'babel',
+    babelrc: false,
     query: {
       presets: [
         'es2015-webpack',
         'react'
-      ],
-      plugins: [
-        'react-hot-loader/babel'
       ]
     }
   }, {
@@ -58,7 +56,7 @@ module.exports = () => {
   return {
     context: __dirname,
     entry: {
-      'app': ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/main'],
+      'app': './client/main',
       'loadCSS': './client/loadCss'
     },
     devtool: 'cheap-module-eval-source-map',

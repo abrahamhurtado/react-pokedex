@@ -6,12 +6,6 @@ import displayName from '../../utils/changeName';
 import leftPad from 'left-pad';
 import styles from './PokemonCard.css';
 
-function createPokemonBackground (pokemonId) {
-  return {
-    backgroundImage: `url('/static/sprites/${leftPad(pokemonId, 3, 0)}.png')`
-  }
-}
-
 export default class PokemonCard extends React.Component {
   render () {
     return (
@@ -22,8 +16,8 @@ export default class PokemonCard extends React.Component {
               <span style={{lineHeight: '40px'}}>{this.props.pokemon.id}</span>
               </div>
             <h3 className={ styles.pokemonCardName }>{displayName(capitalizeString(this.props.pokemon.name))}</h3>
+            <PokemonTypes types={this.props.pokemon.types} />
           </Link>
-          <PokemonTypes types={this.props.pokemon.types} />
         </div>
     )
   }

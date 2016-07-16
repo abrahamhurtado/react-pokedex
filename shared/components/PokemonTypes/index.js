@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import capitalizeString from '../../utils/capitalizeString.js';
 import styles from './PokemonLabel.css';
 var colors = require('../../utils/movesToTypes.js');
@@ -17,17 +16,13 @@ export default class PokemonType extends React.Component {
         className={ styles.PokemonLabelList }
       >
         {this.props.types.map(({id, name}, i) => (
-          <Link
-            to={ `/types/${id}` }
-            key={ i }
-          >
             <li
               style={ getTypeLabelColor(name) }
               className={ styles.PokemonLabel }
+              key={ i }
             >
               {capitalizeString(name)}
             </li>
-          </Link>
         ))}
       </ul>
     );

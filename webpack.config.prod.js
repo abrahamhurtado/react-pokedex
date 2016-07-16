@@ -10,6 +10,7 @@ var loaders = [
     test: /\.(js|jsx)$/,
     exclude: /node_modules/,
     loader: 'babel',
+    babelrc: false,
     query: {
       presets: [
         'es2015-webpack',

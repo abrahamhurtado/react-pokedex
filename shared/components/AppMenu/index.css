@@ -4,10 +4,10 @@
 }
 
 .AppMenuLogo {
-  width: 43px;
   height: 43px;
   background-image: url(../../../assets/img/android-chrome-72x72.png);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   padding-left: 43px;
 }
 
