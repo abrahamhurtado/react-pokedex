@@ -6,7 +6,7 @@ import { renderToString } from 'react-dom/server';
 import { match } from 'react-router';
 import routes from '../../shared/routes';
 
-export default (isDev, filename, webpackFileSystem) => (req, res) => {
+export default () => (req, res) => {
   match({ routes, location: req.url }, (err, redirect, props) => {
     if (err) {
       res.status(500).send(err.message);
@@ -22,28 +22,35 @@ export default (isDev, filename, webpackFileSystem) => (req, res) => {
         );
         const head = Helmet.rewind();
 
-        try {
-          if (isDev) {
-            res.send(
-              webpackFileSystem
-              .readFileSync(filename)
-              .toString()
-              .replace('{{TITLE}}', head.title.toString())
-              .replace('{{APP}}', app)
-              .replace('{{scriptTag}}', scriptTag)
-            );
-          } else {
-            res.send(
-              readFileSync(filename)
-              .toString()
-              .replace('{{TITLE}}', head.title.toString())
-              .replace('{{APP}}', app)
-              .replace('{{scriptTag}}', scriptTag)
-            );
-          }
-        } catch (e) {
-          res.send('An error has happened, maybe it is because the index.html has not been created.');
-        }
+        res.render('index', {
+          title: head.title.toString(),
+          app,
+          scriptTag: scriptTag || '',
+          assets: require('../assets.json')
+        });
+
+        // try {
+        //   if (isDev) {
+        //     res.send(
+        //       webpackFileSystem
+        //       .readFileSync(filename)
+        //       .toString()
+        //       .replace('{{TITLE}}', head.title.toString())
+        //       .replace('{{APP}}', app)
+        //       .replace('{{scriptTag}}', scriptTag)
+        //     );
+        //   } else {
+        //     res.send(
+        //       readFileSync(filename)
+        //       .toString()
+        //       .replace('{{TITLE}}', head.title.toString())
+        //       .replace('{{APP}}', app)
+        //       .replace('{{scriptTag}}', scriptTag)
+        //     );
+        //   }
+        // } catch (e) {
+        //   res.send('An error has happened, maybe it is because the index.html has not been created.');
+        // }
       });
     } else {
       res.status(404).send('Not found');

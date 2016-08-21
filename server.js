@@ -15,6 +15,8 @@ const app = express();
 
 const env = process.env.NODE_ENV || 'development';
 
+app.set('view engine', 'ejs');
+app.set('views', path.resolve(__dirname, './server/views'));
 app.use(compression());
 app.use(favicon(path.resolve(__dirname, './assets/favicon.ico')));
 
@@ -39,10 +41,10 @@ if (env === 'development') {
 
   app.use(require('webpack-hot-middleware')(compiler));
 
-  app.use(reactRouter(true, path.join(compiler.outputPath, 'index.html'), compiler.outputFileSystem));
-} else {
-  app.use(reactRouter(false, path.resolve('./build/index.html')));
+  // app.use(reactRouter(true, path.join(compiler.outputPath, 'index.html'), compiler.outputFileSystem));
 }
+
+app.use(reactRouter());
 
 let port = process.env.PORT || 3000;
 

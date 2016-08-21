@@ -3,3 +3,4 @@ npm-debug.log
 build
 .vscode
 stats.json
+assets.json

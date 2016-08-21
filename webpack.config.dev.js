@@ -3,6 +3,7 @@ var resolve = require('path').resolve;
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+var AssetsPlugin = require('assets-webpack-plugin');
 
 var loaders = [
   {
@@ -40,7 +41,7 @@ var loaders = [
       'image-webpack'
     ]
   }
-]
+];
 
 var plugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -48,9 +49,15 @@ var plugins = [
     template: './index.html'
   }),
   new ScriptExtHtmlWebpackPlugin({
-    async: ['loadCSS.js']
+    async: [ 'loadCSS.js' ]
   }),
-]
+  new AssetsPlugin({
+    filename: 'assets.json',
+    path: resolve(__dirname, 'server'),
+    prettyPrint: true,
+    update: true
+  })
+];
 
 module.exports = () => {
   return {
@@ -61,23 +68,23 @@ module.exports = () => {
     },
     devtool: 'cheap-module-eval-source-map',
     output: {
-      filename: '[name].js',
+      filename: '[hash:8].[name].js',
       path: resolve(__dirname, 'build'),
       publicPath: '/static/'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.css', '.json']
+      extensions: [ '.js', '.jsx', '.css', '.json' ]
     },
     module: {
-      loaders: loaders
+      loaders
     },
-    plugins: plugins,
-    postcss: () => [ autoprefixer({browsers: 'last 2 versions'}) ],
+    plugins,
+    postcss: () => [ autoprefixer({ browsers: 'last 2 versions' }) ],
     imageWebpackLoader: {
       pngquant: {
-        quality: "20-30",
+        quality: '20-30',
         speed: 4
       }
     }
-  }
-}
+  };
+};

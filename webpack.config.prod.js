@@ -4,6 +4,7 @@ var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+var AssetsPlugin = require('assets-webpack-plugin');
 
 var loaders = [
   {
@@ -64,7 +65,13 @@ var plugins = [
       'NODE_ENV': JSON.stringify('production')
     }
   }),
-  new ExtractTextPlugin('style.css', { allChunks: true })
+  new ExtractTextPlugin('style.css', { allChunks: true }),
+  new AssetsPlugin({
+    filename: 'assets.json',
+    path: resolve(__dirname, 'server'),
+    prettyPrint: true,
+    update: true
+  })
 ];
 
 module.exports = () => {
@@ -77,7 +84,7 @@ module.exports = () => {
     },
     devtool: 'hidden-source-map',
     output: {
-      filename: '[name].js',
+      filename: '[chunkhash:8].[name].js',
       path: resolve(__dirname, 'build'),
       publicPath: '/static/'
     },
