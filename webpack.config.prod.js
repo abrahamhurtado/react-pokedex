@@ -33,18 +33,18 @@ var loaders = [
       'image-webpack'
     ]
   }
-]
+];
 
 var plugins = [
   new HtmlWebpackPlugin({
     template: './index.html'
   }),
   new ScriptExtHtmlWebpackPlugin({
-    async: ['loadCSS.js']
+    async: [ 'loadCSS.js' ]
   }),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+    name: 'vendor'
   }),
   new webpack.LoaderOptionsPlugin({
     minimize: true,
@@ -65,7 +65,7 @@ var plugins = [
     }
   }),
   new ExtractTextPlugin('style.css', { allChunks: true })
-]
+];
 
 module.exports = () => {
   return {
@@ -73,27 +73,27 @@ module.exports = () => {
     entry: {
       'app': './client/main',
       'loadCSS': './client/loadCss',
-      vendor: ['react', 'react-dom', 'react-router', 'async-props', 'react-helmet']
+      vendor: [ 'react', 'react-dom', 'react-router', 'async-props', 'react-helmet' ]
     },
     devtool: 'hidden-source-map',
     output: {
-      filename: '[chunkhash].[name].js',
+      filename: '[name].js',
       path: resolve(__dirname, 'build'),
       publicPath: '/static/'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.css', '.json']
+      extensions: [ '.js', '.jsx', '.css', '.json' ]
     },
     module: {
-      loaders: loaders
+      loaders
     },
-    plugins: plugins,
-    postcss: [ autoprefixer({browsers: 'last 2 versions'}) ],
+    plugins,
+    postcss: [ autoprefixer({ browsers: 'last 2 versions' }) ],
     imageWebpackLoader: {
       pngquant: {
-        quality: "20-30",
+        quality: '20-30',
         speed: 4
       }
     }
-  }
-}
+  };
+};
