@@ -19,22 +19,26 @@ export default class PokemonList extends React.Component {
   constructor () {
     super();
     this.state = {
-      pokemon: createInitialState(pokemonNames, range(1, 722), pokemonTypes)
+      pokemon: createInitialState(pokemonNames, range(1, 31), pokemonTypes)
     };
   }
   componentDidMount () {
-   console.log('Se renderizó el componente =)');
+    this.setState({
+      pokemon: this.state.pokemon.concat(
+        createInitialState(pokemonNames, range(31, 722), pokemonTypes)
+      )
+    });
   }
   render () {
     return (
-      <div style={{textAlign: 'center'}}>
-        {this.state.pokemon.map(pokemon => (
+      <div style={{ textAlign: 'center' }}>
+        {this.state.pokemon.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
             pokemon={ pokemon }
           />
         ))}
       </div>
-    )
+    );
   }
 }
