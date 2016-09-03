@@ -13,5 +13,5 @@ module.exports = (name) => {
   case 'Farfetchd':
     return 'Farfetch\'d';
   }
-  return name.replace(/-(?:ordinary|incarnate|normal|aria|plant|altered|red-striped|land|male|shield|average)$/, '');
+  return name.replace(/-(?:ordinary|incarnate|normal|aria|plant|altered|red-striped|land|male|shield|average|standard)$/, '');
 };
