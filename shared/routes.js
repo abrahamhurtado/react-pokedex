@@ -9,5 +9,15 @@ export default {
   component: App,
   indexRoute: {
     component: PokemonList
-  }
+  },
+  childRoutes: [
+    {
+      path: 'pokemon/:id',
+      getComponent (nextState, cb) {
+        System.import('./components/PokemonFullCard/index.js')
+          .then((module) => cb(null, module.default))
+          .catch((err) => cb(err, null))
+      }
+    }
+  ]
 };

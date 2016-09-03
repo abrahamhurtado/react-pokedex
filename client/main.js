@@ -11,8 +11,7 @@ match({ routes, history: browserHistory }, (err, redirect, props) => {
       render={ (renderProps) => (
         <AsyncProps { ...renderProps } />
       ) }
-      history={ browserHistory }
-      routes={ routes }
+      {...props}
     />
   , app);
 });
